@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <div class="pulse" aria-hidden="true"></div>
+    <div>
+      <h1>LAUNCH RADAR</h1>
+      <p class="sub">Pre-token protocols, ranked by what a launch would be worth</p>
+    </div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+
+<main>
+  <section class="controls" aria-label="Board controls">
+    <input id="q" type="search" placeholder="Search name or slug…" autocomplete="off">
+    <select id="cat" aria-label="Filter by category"><option value="">All categories</option></select>
+    <select id="chain" aria-label="Filter by chain"><option value="">All chains</option></select>
+    <label class="check"><input id="watch" type="checkbox"> Watchlist only</label>
+    <select id="sort" aria-label="Sort board">
+      <option value="rank">Sort: implied value</option>
+      <option value="tvl">Sort: TVL</option>
+      <option value="growth">Sort: 7-day growth</option>
+      <option value="age">Sort: age</option>
+    </select>
+  </section>
+
+  <p class="count" id="count"></p>
+
+  <section class="board-wrap">
+    <table id="board">
+      <thead><tr>
+        <th data-k="rank">#</th><th data-k="name">Protocol</th><th data-k="category">Category</th>
+        <th>Chains</th><th data-k="tvl">TVL</th><th data-k="growth">7d</th><th data-k="age">Age</th>
+        <th data-k="implied">Implied value</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+
+  <section id="detail" class="detail" hidden></section>
+
+  <section class="live">
+    <h2>Already trading — for reference, not ranked</h2>
+    <p class="note">These protocols record a token with a market cap, so they are not pre-token launches. They sit here so a reader can compare an implied value against a real one.</p>
+    <ol id="liveRows" class="live-list"></ol>
+  </section>
+
+  <section class="method">
+    <h2>How the value is worked out</h2>
+    <p id="formula"></p>
+    <p class="note">Implied value is this radar's own claim from the snapshot's figures. It is not a prediction that a token will be issued, or when. A protocol is called pre-token only because its DefiLlama record carries no token — the record is not proof it has none.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Launch Radar · model <span id="modelVer"></span> · snapshot as of <span id="asOf"></span> · no network, no tracking</p>
+</footer>
+
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
